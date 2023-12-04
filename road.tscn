@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://hs7jg1vnrv64"]
+
+[ext_resource type="Texture2D" uid="uid://bhyhodk284cw1" path="res://road.jpg" id="1_o30j3"]
+[ext_resource type="Script" path="res://road.gd" id="2_puhaq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8wgx"]
+size = Vector2(533, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63x16"]
+size = Vector2(20.2405, 161.194)
+
+[node name="Node2D" type="Sprite2D"]
+position = Vector2(-2.58684e-05, 0)
+scale = Vector2(1.20075, 1.34)
+texture = ExtResource("1_o30j3")
+script = ExtResource("2_puhaq")
+
+[node name="top_generation_position" type="Node2D" parent="."]
+position = Vector2(266.5, -40)
+
+[node name="bottom_generation_position" type="Node2D" parent="."]
+position = Vector2(266.5, 40)
+
+[node name="upper_border" type="StaticBody2D" parent="."]
+position = Vector2(7.22029e-07, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="upper_border"]
+position = Vector2(4.01672e-13, -48)
+shape = SubResource("RectangleShape2D_w8wgx")
+
+[node name="lower_border" type="StaticBody2D" parent="."]
+position = Vector2(7.22029e-07, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lower_border"]
+position = Vector2(4.01672e-13, 8)
+shape = SubResource("RectangleShape2D_w8wgx")
+
+[node name="left_border" type="StaticBody2D" parent="."]
+position = Vector2(-276.62, -17.9104)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left_border"]
+position = Vector2(9.53674e-06, -1.90735e-06)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_63x16")
+
+[node name="right_border" type="StaticBody2D" parent="."]
+position = Vector2(276.62, -17.9104)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right_border"]
+position = Vector2(9.53674e-06, -1.90735e-06)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_63x16")

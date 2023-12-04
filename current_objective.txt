@@ -1,0 +1,45 @@
+Make demo of Skater Boy / Later Skater (placeholer):
+Main idea is treadmill while the player controls speed and is supposed to avoid obstacles
+
+Main mechanic / motivation:
+ - Go as fast and as recklessly as possible
+
+How to incentivise desired behaivior?
+ - Point system, where speed and airtime equal more points. Also a leaderboard displaying fictional / real high scores.
+ - Punish slow speed and no jumping. Either by increasing acceleration, obstacles amount etc...
+ - Aesthetic reinforcement
+ - Add "obstacles" for acceleration (such as oil, trampoline, hold onto car, etc...)
+ - Consider NOT adding a pause option
+
+Current TODO:
+ - Decide how to prioritize nodes rendering [X]
+
+ - Implement character speed []
+
+ - Decide and implement how enemy generation pace progresses []
+
+ - Implement road borders [X]
+
+ - Implement random obstacle generation [x]
+
+ - Implement collision with obstacles []
+ 
+ - Implement level acceleration []
+ 
+ - Point system:
+  - Design point system
+  - Implement it
+
+ - Design and implement game play flow:
+  - Start
+  - Play
+  - Add name to leader(/"skater") board (maybe add flow for "later board")
+  - Repeat
+ 
+ - Create the following assets:
+  - Character
+  - 3 obstacles (manhole, roadblock, trashbag, car)
+  - Level ("treadmill"), i.e street
+  - Background (sky moving at distance)
+ 
+ - Create "speedy" (emotion of the sort) track

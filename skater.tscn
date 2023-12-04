@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgty60d4648an"]
+
+[ext_resource type="Texture2D" uid="uid://gftn1kcgw4hw" path="res://icon.svg" id="1_fatsk"]
+[ext_resource type="Script" path="res://skate.gd" id="1_si1tm"]
+[ext_resource type="Script" path="res://jump.gd" id="2_kury6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvena"]
+size = Vector2(61, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ir2x"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_si1tm")
+
+[node name="ground_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_bvena")
+
+[node name="jumper" type="CharacterBody2D" parent="."]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_kury6")
+
+[node name="Sprite2D" type="Sprite2D" parent="jumper"]
+texture = ExtResource("1_fatsk")
+
+[node name="air_collision" type="CollisionShape2D" parent="jumper"]
+shape = SubResource("RectangleShape2D_8ir2x")
