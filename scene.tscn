@@ -33,6 +33,5 @@ position = Vector2(369.411, 24.4582)
 
 [node name="Node2D" parent="." instance=ExtResource("2_sr1bj")]
 position = Vector2(-182.385, 3.09598)
-scale = Vector2(1, 1)
 
 [connection signal="timeout" from="enemy_cooldown_timer" to="." method="_on_enemy_cooldown_timer_timeout"]

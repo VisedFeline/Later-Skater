@@ -14,7 +14,9 @@ How to incentivise desired behaivior?
 Current TODO:
  - Decide how to prioritize nodes rendering [X]
 
- - Implement character speed []
+ - Implement character speed [1/2]
+  - Add basic acceleration [X]
+  - Add breaks
 
  - Decide and implement how enemy generation pace progresses []
 

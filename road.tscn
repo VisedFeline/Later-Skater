@@ -40,14 +40,11 @@ position = Vector2(-276.62, -17.9104)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left_border"]
 position = Vector2(9.53674e-06, -1.90735e-06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_63x16")
 
 [node name="right_border" type="StaticBody2D" parent="."]
 position = Vector2(276.62, -17.9104)
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_border"]
 position = Vector2(9.53674e-06, -1.90735e-06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_63x16")
