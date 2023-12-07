@@ -11,3 +11,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x  += Global.scene_speed * HORIZONTAL_DIRECTION
+
+
+func _on_body_entered(body):
+	body.die()
+
+
+func _on_area_2d_body_entered(body):
+	body.hop()

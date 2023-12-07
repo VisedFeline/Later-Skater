@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4oegmwy2nfjb"]
 
 [ext_resource type="PackedScene" uid="uid://hs7jg1vnrv64" path="res://road.tscn" id="1_hxaqk"]
-[ext_resource type="Script" path="res://scene.gd" id="1_hxy1b"]
+[ext_resource type="Script" path="res://game_manager.gd" id="1_hxy1b"]
 [ext_resource type="PackedScene" uid="uid://bgty60d4648an" path="res://skater.tscn" id="2_sr1bj"]
 [ext_resource type="PackedScene" uid="uid://27fnss8hbtnf" path="res://obstacle.tscn" id="3_dvsk4"]
 [ext_resource type="PackedScene" uid="uid://878o3etpyu0o" path="res://enemy_cooldown_timer.tscn" id="5_4ctcv"]

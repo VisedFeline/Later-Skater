@@ -26,3 +26,4 @@ func _on_enemy_cooldown_timer_timeout():
 	add_child(new_obstacle)
 	print("sup")
 	enemy_cooldown_timer.start()
+	Global.scene_speed += Global.scene_acceleration

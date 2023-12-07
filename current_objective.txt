@@ -24,9 +24,15 @@ Current TODO:
 
  - Implement random obstacle generation [x]
 
- - Implement collision with obstacles []
+ - Implement collision with obstacles [1/2]
+  - Implement collision detection [X]
+  - Implement collision behaviours []
+   - losing
+   - hopping
  
  - Implement level acceleration []
+
+ - Implement and design obstacle hopping []
  
  - Point system:
   - Design point system
@@ -45,3 +51,5 @@ Current TODO:
   - Background (sky moving at distance)
  
  - Create "speedy" (emotion of the sort) track
+
+ - Reimplement jump mechanic

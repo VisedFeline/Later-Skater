@@ -10,6 +10,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping = false
 
 
+func setup_jump_collision(is_jumping: bool):
+	self.set_collision_layer_value(8, !is_jumping)
+	self.set_collision_layer_value(4, is_jumping)
+
 func _physics_process(delta):
 	# Add the gravity.
 	if is_jumping:
@@ -17,12 +21,14 @@ func _physics_process(delta):
 		if velocity.y >= JUMP_VELOCITY * -1:
 			velocity.y = 0
 			is_jumping = false
-			air_collision.set_disabled(true)
+			setup_jump_collision(is_jumping)
+			# air_collision.set_disabled(true)
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and not is_jumping:
 		velocity.y = JUMP_VELOCITY
 		is_jumping = true
+		setup_jump_collision(is_jumping)
 		# For some reason, when collision layer is set to one everything's bad at jumping, but 2 works,
 		# FIGURE IT OUT
 		air_collision.set_disabled(false)
@@ -33,3 +39,7 @@ func _physics_process(delta):
 
 	
 	move_and_slide()
+	
+	
+func hop():
+	print("Wiiiiiiiiiiiiii")
