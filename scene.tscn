@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4oegmwy2nfjb"]
 
+[ext_resource type="Script" path="res://game_manager.gd" id="1_5hieu"]
 [ext_resource type="PackedScene" uid="uid://hs7jg1vnrv64" path="res://road.tscn" id="1_hxaqk"]
-[ext_resource type="Script" path="res://game_manager.gd" id="1_v40i3"]
 [ext_resource type="PackedScene" uid="uid://bgty60d4648an" path="res://skater.tscn" id="2_sr1bj"]
 [ext_resource type="PackedScene" uid="uid://27fnss8hbtnf" path="res://obstacle.tscn" id="3_dvsk4"]
 [ext_resource type="PackedScene" uid="uid://878o3etpyu0o" path="res://enemy_cooldown_timer.tscn" id="5_4ctcv"]
 [ext_resource type="PackedScene" uid="uid://c6ue14hby6w0t" path="res://scenes/GUI.tscn" id="6_a4s2l"]
 
-[node name="Node2D" type="Node2D"]
+[node name="level" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(577, 326)
 scale = Vector2(2.15478, 3.23)
-script = ExtResource("1_v40i3")
+script = ExtResource("1_5hieu")
 
 [node name="road" parent="." instance=ExtResource("1_hxaqk")]
 z_index = -1
