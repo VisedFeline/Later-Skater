@@ -40,4 +40,4 @@ func _physics_process(delta):
 	
 
 func die():
-	print("shiiiiiiii")
+	print("I died")
