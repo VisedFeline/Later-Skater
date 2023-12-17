@@ -39,6 +39,7 @@ position = Vector2(-182.385, 3.09598)
 visible = false
 
 [connection signal="timeout" from="enemy_cooldown_timer" to="." method="_on_enemy_cooldown_timer_timeout"]
+[connection signal="player_died" from="Node2D" to="." method="_on_node_2d_player_died"]
 [connection signal="game_over" from="menu" to="." method="_on_menu_game_over"]
 [connection signal="restart_game" from="menu" to="." method="_on_menu_restart_game"]
 [connection signal="resume_game" from="menu" to="." method="_on_menu_resume_game"]

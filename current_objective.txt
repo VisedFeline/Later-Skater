@@ -50,6 +50,6 @@ Current TODO:
   - Level ("treadmill"), i.e street
   - Background (sky moving at distance)
  
- - Create "speedy" (emotion of the sort) track
+ - Create "speedy" (emotion of the sort) soundtrack
 
  - Reimplement jump mechanic

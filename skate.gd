@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready
 var jumper = self.get_node("jumper")
 
+
+
 var X_SPEED = 2
 var Y_SPEED = 2
 const LOWER_SPEED_LIMIT = 2
@@ -13,11 +15,11 @@ const IDLE_DECELERATION = 4
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+signal player_died
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	print(X_SPEED)
 	var horizontal_direction = Input.get_axis("left", "right")
 	if horizontal_direction:
 		position.x  += X_SPEED * horizontal_direction
@@ -40,4 +42,4 @@ func _physics_process(delta):
 	
 
 func die():
-	print("I died")
+	player_died.emit()

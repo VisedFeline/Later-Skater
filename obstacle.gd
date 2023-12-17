@@ -14,6 +14,8 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	print(self.name)
+	print(body.name)
 	body.die()
 
 

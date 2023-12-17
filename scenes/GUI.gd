@@ -27,3 +27,12 @@ func _on_resume_button_pressed():
 func _on_restart_button_pressed():
 	""" Emit the restart_game signal """
 	restart_game.emit()
+	
+func set_visibility():
+	if Global.game_state == Global.GAME_STATES.GAME_PAUSED_STATE:
+		self.get_node("Control/VBoxContainer/ResumeButton").set_visible(true)
+	else:
+		self.get_node("Control/VBoxContainer/ResumeButton").set_visible(false)
+	self.set_visible(true)
+	
+	
