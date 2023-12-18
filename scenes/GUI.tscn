@@ -32,27 +32,64 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.0
-offset_top = -15.5
-offset_right = 96.0
-offset_bottom = 15.5
+offset_left = -128.0
+offset_top = -115.0
+offset_right = 128.0
+offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 25
 
-[node name="ResumeButton" parent="Control/VBoxContainer" instance=ExtResource("2_oflvb")]
-custom_minimum_size = Vector2(0, 60)
+[node name="ResumeContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" parent="Control/VBoxContainer" instance=ExtResource("3_70ttj")]
+[node name="ResumeButton" parent="Control/VBoxContainer/ResumeContainer" instance=ExtResource("2_oflvb")]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="QuitButton" parent="Control/VBoxContainer" instance=ExtResource("1_ukfob")]
-custom_minimum_size = Vector2(0, 60)
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/ResumeContainer"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="Control/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="RestartContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/RestartContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="RestartButton" parent="Control/VBoxContainer/RestartContainer" instance=ExtResource("3_70ttj")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/VBoxContainer/RestartContainer"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="QuitContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/QuitContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="QuitButton" parent="Control/VBoxContainer/QuitContainer" instance=ExtResource("1_ukfob")]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 200.0
+offset_right = 896.0
+offset_bottom = 215.0
+rotation = 1.0472
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Control/VBoxContainer/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/RestartContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/QuitContainer/QuitButton" to="." method="_on_quit_button_pressed"]

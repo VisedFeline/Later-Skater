@@ -10,8 +10,8 @@ var game_state = GAME_STATES.GAME_RUNS_STATE
 
 
 func restart_settings():
-	scene_speed = 2
-	scene_acceleration = 0.5
-	acceleration = 2
-	enemy_cooldown = 2
-	game_state = GAME_STATES.GAME_RUNS_STATE
+    scene_speed = 2
+    scene_acceleration = 0.5
+    acceleration = 2
+    enemy_cooldown = 2
+    game_state = GAME_STATES.GAME_RUNS_STATE
