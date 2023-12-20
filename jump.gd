@@ -31,27 +31,26 @@ func handle_grind():
 
 
 func _physics_process(delta):
+    var is_node_above_center = self.position.y < center.position.y
+    
     # Add the gravity.
-    if is_jumping:
-        # position.x  += X_SPEED * horizontal_direction
-        #if X_SPEED < UPPER_SPEED_LIMIT:
-        #    X_SPEED = move_toward(abs(X_SPEED), UPPER_SPEED_LIMIT,
-        #    ACCELERATION * delta )
+    if is_jumping:        
+        # Move up until gravity stops velocity
         if velocity.y < 0:
-            # move up
             velocity.y = move_toward(velocity.y, 0, gravity * delta)
-        elif velocity.y != -JUMP_VELOCITY:
-            # move down
-            velocity.y = move_toward(velocity.y, -JUMP_VELOCITY, gravity * delta)
+            
+        # move down until max velocity reached (reaching ground again from peak)
+        # or until the jumper node is below the skater node
+        elif velocity.y < abs(JUMP_VELOCITY) and is_node_above_center:
+            velocity.y = move_toward(velocity.y, abs(JUMP_VELOCITY), gravity * delta)
         
+        # else reset node position and velocity
         else:
-        #velocity.y += gravity * delta
-        #if velocity.y >= JUMP_VELOCITY * -1:
-            print(velocity.y)
             velocity.y = 0
             is_jumping = false
             self.position = center.position
             setup_jump_collision(is_jumping)
+            
 
     # Handle Jump.
     if Input.is_action_just_pressed("jump") and not is_jumping:
