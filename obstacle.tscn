@@ -22,12 +22,16 @@ position = Vector2(0, 9.6)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_2wl1g")
 
-[node name="hop_area" type="Area2D" parent="."]
-collision_mask = 8
+[node name="grind_area" type="Area2D" parent="."]
+position = Vector2(0, -16)
+collision_mask = 128
 
-[node name="hop_area" type="CollisionShape2D" parent="hop_area"]
-position = Vector2(0.5, -18.5)
+[node name="grind_area_collision" type="CollisionShape2D" parent="grind_area"]
 shape = SubResource("RectangleShape2D_ajpt8")
 
+[node name="grind_stop" type="Node2D" parent="grind_area"]
+position = Vector2(16, 0)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="hop_area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="grind_area" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="grind_area" to="." method="_on_grind_area_body_exited"]

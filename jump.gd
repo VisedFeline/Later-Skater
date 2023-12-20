@@ -14,6 +14,7 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_jumping = false
+var is_grinding = false
 var time = 0
 
 
@@ -23,6 +24,11 @@ func setup_jump_collision(is_jumping: bool):
     self.set_collision_layer_value(4, !is_jumping)
     
     
+func handle_grind():
+    """ Handle grind movement """
+    is_jumping = false
+    
+
 
 func _physics_process(delta):
     # Add the gravity.
@@ -67,5 +73,16 @@ func _physics_process(delta):
 func die():
     parent.die()
 
-func hop():
-    print("Wiiiiiiiiiiiiii")
+func grind(position):
+    """ Initiate rad grinding dawg """
+    var new_position = Vector2(self.position.x, position.y)
+    var new_velocity = Vector2(self.velocity.x, 0)
+    self.set_position(new_position)
+    self.set_velocity(new_velocity)
+    is_grinding = true
+    is_jumping = false
+
+func stop_grind():
+    print("stopped:(")
+    is_grinding = false
+    is_jumping = true
