@@ -4,7 +4,10 @@ extends CharacterBody2D
 var air_collision = self.get_node("air_collision")
 
 @onready
-var center = self.get_parent().get_node("center")
+var parent = self.get_parent()
+
+@onready
+var center = parent.get_node("center")
 
 const JUMP_VELOCITY = -400.0
 
@@ -15,8 +18,11 @@ var time = 0
 
 
 func setup_jump_collision(is_jumping: bool):
-    self.set_collision_layer_value(8, !is_jumping)
-    self.set_collision_layer_value(4, is_jumping)
+    """ Setup the node's collision layers so that obstacles can't touch it midair but can while on ground """
+    self.set_collision_layer_value(8, is_jumping)
+    self.set_collision_layer_value(4, !is_jumping)
+    
+    
 
 func _physics_process(delta):
     # Add the gravity.
@@ -40,7 +46,6 @@ func _physics_process(delta):
             is_jumping = false
             self.position = center.position
             setup_jump_collision(is_jumping)
-            air_collision.set_disabled(true)
 
     # Handle Jump.
     if Input.is_action_just_pressed("jump") and not is_jumping:
@@ -59,5 +64,8 @@ func _physics_process(delta):
     move_and_slide()
     
     
+func die():
+    parent.die()
+
 func hop():
     print("Wiiiiiiiiiiiiii")

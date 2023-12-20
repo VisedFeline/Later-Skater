@@ -30,9 +30,9 @@ func _on_restart_button_pressed():
     
 func set_visibility():
     if Global.game_state == Global.GAME_STATES.GAME_PAUSED_STATE:
-        self.get_node("Control/VBoxContainer/ResumeButton").set_visible(true)
+        self.get_node("Control/VBoxContainer/ResumeContainer").set_visible(true)
     else:
-        self.get_node("Control/VBoxContainer/ResumeButton").set_visible(false)
+        self.get_node("Control/VBoxContainer/ResumeContainer").set_visible(false)
     self.set_visible(true)
     
     
