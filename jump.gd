@@ -61,6 +61,7 @@ func _physics_process(delta):
         # FIGURE IT OUT
         air_collision.set_disabled(false)
         
+        
 
     # Get the input direction and handle the movement/deceleration.
     # As good practice, you should replace UI actions with custom gameplay actions.s
@@ -74,6 +75,9 @@ func die():
 
 func grind(position):
     """ Initiate rad grinding dawg """
+    var should_grind = Input.is_action_pressed("grind")
+    if not should_grind:
+        return
     var new_position = Vector2(self.position.x, position.y)
     var new_velocity = Vector2(self.velocity.x, 0)
     self.set_position(new_position)
@@ -82,7 +86,8 @@ func grind(position):
     is_jumping = false
 
 func stop_grind():
-    print("stopped:(")
+    if not is_grinding:
+        return
     is_grinding = false
     is_jumping = true
     parent.stop_grind()
