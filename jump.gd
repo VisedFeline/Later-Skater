@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready
 var air_collision = self.get_node("air_collision")
 
+@onready
+var center = self.get_parent().get_node("center")
+
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -35,6 +38,7 @@ func _physics_process(delta):
             print(velocity.y)
             velocity.y = 0
             is_jumping = false
+            self.position = center.position
             setup_jump_collision(is_jumping)
             air_collision.set_disabled(true)
 

@@ -83,11 +83,12 @@ size_flags_horizontal = 3
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = 664.0
-offset_top = 200.0
-offset_right = 896.0
-offset_bottom = 215.0
-rotation = 1.0472
+offset_left = 600.0
+offset_top = 288.0
+offset_right = 832.0
+offset_bottom = 303.0
+rotation = 1.309
+pivot_offset = Vector2(103.048, 7.5)
 color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Control/VBoxContainer/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
