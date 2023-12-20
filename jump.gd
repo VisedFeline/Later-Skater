@@ -85,3 +85,4 @@ func stop_grind():
     print("stopped:(")
     is_grinding = false
     is_jumping = true
+    parent.stop_grind()

@@ -54,5 +54,9 @@ func _physics_process(delta):
     move_and_slide()
     
 
+func stop_grind():
+    """ Handle stop grind behaviors """
+    Global.scene_speed += (Global.scene_speed * GRIND_ACCELERATION)
+
 func die():
     player_died.emit()
