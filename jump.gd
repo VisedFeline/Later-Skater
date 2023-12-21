@@ -10,6 +10,7 @@ var parent = self.get_parent()
 var center = parent.get_node("center")
 
 const JUMP_VELOCITY = -400.0
+const GRIND_JUMP_MULTIPLIER = 1.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -41,8 +42,8 @@ func _physics_process(delta):
             
         # move down until max velocity reached (reaching ground again from peak)
         # or until the jumper node is below the skater node
-        elif velocity.y < abs(JUMP_VELOCITY) and is_node_above_center:
-            velocity.y = move_toward(velocity.y, abs(JUMP_VELOCITY), gravity * delta)
+        elif is_node_above_center:
+            velocity.y = velocity.y + gravity * delta # move_toward(velocity.y, abs(JUMP_VELOCITY), gravity * delta)
         
         # else reset node position and velocity
         else:
@@ -55,6 +56,8 @@ func _physics_process(delta):
     # Handle Jump.
     if Input.is_action_just_pressed("jump") and not is_jumping:
         velocity.y = JUMP_VELOCITY
+        if is_grinding:
+            velocity.y *= GRIND_JUMP_MULTIPLIER
         is_jumping = true
         setup_jump_collision(is_jumping)
         # For some reason, when collision layer is set to one everything's bad at jumping, but 2 works,

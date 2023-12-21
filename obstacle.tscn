@@ -7,7 +7,7 @@
 size = Vector2(128, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajpt8"]
-size = Vector2(35, 3)
+size = Vector2(41.5, 3)
 
 [node name="Node2D" type="Area2D"]
 scale = Vector2(2, 1)
@@ -28,6 +28,7 @@ position = Vector2(0, -16)
 collision_mask = 128
 
 [node name="grind_area_collision" type="CollisionShape2D" parent="grind_area"]
+position = Vector2(3.25, 0)
 shape = SubResource("RectangleShape2D_ajpt8")
 
 [node name="grind_stop" type="Node2D" parent="grind_area"]
