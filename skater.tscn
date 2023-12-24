@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgty60d4648an"]
+[gd_scene load_steps=7 format=3 uid="uid://bgty60d4648an"]
 
 [ext_resource type="Texture2D" uid="uid://gftn1kcgw4hw" path="res://icon.svg" id="1_fatsk"]
 [ext_resource type="Script" path="res://skate.gd" id="1_si1tm"]
 [ext_resource type="Script" path="res://jump.gd" id="2_kury6"]
+[ext_resource type="Script" path="res://scorer.gd" id="4_qla6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvena"]
 size = Vector2(16, 20)
@@ -37,3 +38,11 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_8ir2x")
 
 [node name="center" type="Node2D" parent="."]
+
+[node name="Scorer" type="Node2D" parent="."]
+script = ExtResource("4_qla6p")
+
+[node name="Timer" type="Timer" parent="Scorer"]
+autostart = true
+
+[connection signal="timeout" from="Scorer/Timer" to="Scorer" method="_on_timer_timeout"]
