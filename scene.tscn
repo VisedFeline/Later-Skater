@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://hs7jg1vnrv64" path="res://road.tscn" id="1_hxaqk"]
 [ext_resource type="PackedScene" uid="uid://bgty60d4648an" path="res://skater.tscn" id="2_sr1bj"]
 [ext_resource type="PackedScene" uid="uid://27fnss8hbtnf" path="res://obstacle.tscn" id="3_dvsk4"]
-[ext_resource type="PackedScene" uid="uid://878o3etpyu0o" path="res://enemy_cooldown_timer.tscn" id="5_4ctcv"]
 [ext_resource type="PackedScene" uid="uid://c6ue14hby6w0t" path="res://scenes/GUI.tscn" id="6_a4s2l"]
+[ext_resource type="PackedScene" uid="uid://d3egooxq20e3k" path="res://scenes/game_nodes/enemy_generator.tscn" id="7_evwqh"]
 
 [node name="level" type="Node2D"]
 y_sort_enabled = true
@@ -30,16 +30,15 @@ position = Vector2(130.408, 14.5511)
 [node name="obst4" parent="." instance=ExtResource("3_dvsk4")]
 position = Vector2(374.516, 8.35913)
 
-[node name="enemy_cooldown_timer" parent="." instance=ExtResource("5_4ctcv")]
-
-[node name="Node2D" parent="." instance=ExtResource("2_sr1bj")]
+[node name="skater" parent="." instance=ExtResource("2_sr1bj")]
 position = Vector2(-182.385, 3.09598)
 
 [node name="menu" parent="." instance=ExtResource("6_a4s2l")]
 visible = false
 
-[connection signal="timeout" from="enemy_cooldown_timer" to="." method="_on_enemy_cooldown_timer_timeout"]
-[connection signal="player_died" from="Node2D" to="." method="_on_node_2d_player_died"]
+[node name="EnemyGenerator" parent="." instance=ExtResource("7_evwqh")]
+
+[connection signal="player_died" from="skater" to="." method="_on_node_2d_player_died"]
 [connection signal="game_over" from="menu" to="." method="_on_menu_game_over"]
 [connection signal="restart_game" from="menu" to="." method="_on_menu_restart_game"]
 [connection signal="resume_game" from="menu" to="." method="_on_menu_resume_game"]

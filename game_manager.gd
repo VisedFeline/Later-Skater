@@ -13,15 +13,24 @@ var enemy_cooldown_timer = self.get_node("enemy_cooldown_timer")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    print("dofuck")
-    enemy_cooldown_timer.wait_time = Global.enemy_cooldown
-    enemy_cooldown_timer.start()
+    pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
     pass
 
+
+func generate_enemy(y_position=null):
+    var position = road.generate_random_road_position()
+    if y_position:
+        position.y = y_position
+    var new_obstacle = preload(OBSTACLE_PATH).instantiate()
+    new_obstacle.position = position
+    add_child(new_obstacle)
+    print("sup")
+    Global.scene_speed += Global.scene_acceleration
+        
 
 func _on_enemy_cooldown_timer_timeout():
     var obstalce_position = road.generate_random_road_position()

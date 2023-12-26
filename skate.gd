@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum SKATER_STATES {STANDING, CROUCHING, JUMPING}
+enum SKATER_STATES {STANDING, CROUCHING, JUMPING, GRINDING}
 var skater_state = SKATER_STATES.STANDING
 
 # STANDING PARAMS
@@ -43,6 +43,14 @@ func handle_states():
     else:
         skater_state = SKATER_STATES.STANDING
         y_speed_multiplier = Y_SPEED_STANDING_MULTIPLIER
+
+
+func move_horizontally():
+    """ Handle horizontal movement logic """
+    var vertical_direction = Input.get_axis("up", "down")
+    var is_grinding = skater_state == SKATER_STATES.GRINDING
+    if vertical_direction and not is_grinding:
+        position.y  += y_speed * vertical_direction * y_speed_multiplier
 
 
 func _physics_process(delta):

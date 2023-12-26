@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3egooxq20e3k"]
+
+[ext_resource type="Script" path="res://scenes/game_nodes/enemy_generator.gd" id="1_4rmc2"]
+
+[node name="EnemyGenerator" type="Node2D"]
+script = ExtResource("1_4rmc2")
+
+[node name="direct_obstacle_timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="enemy_cooldown_timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="direct_obstacle_timer" to="." method="_on_direct_obstacle_timer_timeout"]
+[connection signal="timeout" from="enemy_cooldown_timer" to="." method="_on_enemy_cooldown_timer_timeout"]
