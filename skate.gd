@@ -1,12 +1,23 @@
 extends CharacterBody2D
 
+enum SKATER_STATES {STANDING, CROUCHING, JUMPING}
+var skater_state = SKATER_STATES.STANDING
+
+# STANDING PARAMS
+const Y_SPEED_STANDING_MULTIPLIER = 1
+
+# CROUCHING PARAMS
+const Y_SPEED_CROUCH_MULTIPLIER = 1.5
+
+# JUMPING PARAMS
+
+
 @onready
 var jumper = self.get_node("jumper")
 
-
-
 var x_speed = 2
 var y_speed = 2
+var y_speed_multiplier = Y_SPEED_STANDING_MULTIPLIER
 const LOWER_SPEED_LIMIT = 2
 const UPPER_SPEED_LIMIT = 8
 const ACCELERATION = 2
@@ -24,9 +35,21 @@ func grind(delta):
     position.x  += x_speed
 
 
+func handle_states():
+    """ Handle state by input """
+    if Input.is_action_pressed("crouch"):
+        skater_state = SKATER_STATES.CROUCHING
+        y_speed_multiplier = Y_SPEED_CROUCH_MULTIPLIER
+    else:
+        skater_state = SKATER_STATES.STANDING
+        y_speed_multiplier = Y_SPEED_STANDING_MULTIPLIER
+
+
 func _physics_process(delta):
     # Get the input direction and handle the movement/deceleration.
     # As good practice, you should replace UI actions with custom gameplay actions.
+    handle_states()
+    
     var horizontal_direction = Input.get_axis("left", "right")
     
     if jumper.is_grinding:
@@ -44,7 +67,7 @@ func _physics_process(delta):
     
         var vertical_direction = Input.get_axis("up", "down")
         if vertical_direction:
-            position.y  += y_speed * vertical_direction
+            position.y  += y_speed * vertical_direction * y_speed_multiplier
         
     if Input.is_action_pressed("accelerate"):
         Global.scene_speed = Global.scene_speed + Global.acceleration * delta
