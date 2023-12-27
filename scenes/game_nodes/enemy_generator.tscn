@@ -6,7 +6,7 @@
 script = ExtResource("1_4rmc2")
 
 [node name="direct_obstacle_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 2.0
 autostart = true
 
 [node name="enemy_cooldown_timer" type="Timer" parent="."]

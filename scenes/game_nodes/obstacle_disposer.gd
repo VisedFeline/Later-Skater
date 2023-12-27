@@ -12,5 +12,4 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-    print(area.name)
     area.queue_free()

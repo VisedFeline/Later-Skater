@@ -14,8 +14,8 @@ var enemy_cooldown_timer = self.get_node("enemy_cooldown_timer")
 var TIMERS = [direct_obstacle_timer, enemy_cooldown_timer]
 
 # First element is 'from' float, second is 'to' gloat
-const RANDOM_DIRECT_ENEMY_GENERATION_RANGE = [3, 8]
-const RANDOM_OBSTACLE_GENERATION_RANGE = 2
+const RANDOM_DIRECT_ENEMY_GENERATION_RANGE = [2, 4]
+const RANDOM_OBSTACLE_GENERATION_RANGE = 1
 
 
 # Called when the node enters the scene tree for the first time.
