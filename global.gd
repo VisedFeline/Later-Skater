@@ -1,5 +1,7 @@
 extends Node
 
+const MIN_SCENE_SPEED = 1
+const MAX_SCENE_SPEED = 8
 const SPURT_SPEED_MULTIPLIER = 2
 const GRIND_SCENE_SPEED = 4
 
@@ -28,6 +30,16 @@ func restore_speed():
         return
     scene_speed = scene_speed_placeholder
     scene_speed_placeholder = 0
+    
+
+func increase_scene_speed(increment: float = 0.0):
+    """ Increase / Decrease scene speed, while staying at the speed's range """
+    if increment > 0:
+        scene_speed = move_toward(scene_speed, MAX_SCENE_SPEED, increment)
+    elif increment < 0:
+        scene_speed = move_toward(scene_speed, MIN_SCENE_SPEED, increment)  
+    print("in " + str(increment))
+    print("ao " + str(scene_speed))      
 
 func restart_settings():
     scene_speed = 2

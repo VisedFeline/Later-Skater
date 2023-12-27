@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://obstacle.gd" id="1_pvuby"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wl1g"]
-size = Vector2(128, 64)
+size = Vector2(128, 26.6667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajpt8"]
-size = Vector2(41.5, 3)
+size = Vector2(41.5, 9.5)
 
 [node name="Node2D" type="Area2D"]
 scale = Vector2(2, 1)
@@ -19,7 +19,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_7uho3")
 
 [node name="hit_area" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9.6)
+position = Vector2(0, 4)
 scale = Vector2(0.3, 0.3)
 shape = SubResource("RectangleShape2D_2wl1g")
 
@@ -28,7 +28,7 @@ position = Vector2(0, -16)
 collision_mask = 128
 
 [node name="grind_area_collision" type="CollisionShape2D" parent="grind_area"]
-position = Vector2(3.25, 0)
+position = Vector2(3.25, -3.25)
 shape = SubResource("RectangleShape2D_ajpt8")
 
 [node name="grind_stop" type="Node2D" parent="grind_area"]

@@ -78,7 +78,8 @@ func _physics_process(delta):
             position.y  += y_speed * vertical_direction * y_speed_multiplier
         
     if Input.is_action_pressed("accelerate"):
-        Global.scene_speed = Global.scene_speed + Global.acceleration * delta
+        Global.increase_scene_speed(Global.acceleration * delta)
+        # Global.scene_speed = Global.scene_speed + Global.acceleration * delta
         # print(Global.scene_speed)
     
     # If things don't work, comment and FIGURE IT OUT!
@@ -88,7 +89,11 @@ func _physics_process(delta):
 func stop_grind():
     """ Handle stop grind behaviors """
     Global.restore_speed()
-    Global.scene_speed += (Global.scene_speed * GRIND_ACCELERATION)
+    #var speed_incement = Global.scene_speed * GRIND_ACCELERATION - Global.scene_speed
+    #print("sp " + str(speed_incement))
+    Global.increase_scene_speed(Global.scene_speed * GRIND_ACCELERATION)
+    
+    #Global.scene_speed += (Global.scene_speed * GRIND_ACCELERATION)
 
 func die():
     player_died.emit()
