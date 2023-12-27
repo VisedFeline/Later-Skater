@@ -8,9 +8,6 @@ var menu = self.get_node("menu")
 
 const OBSTACLE_PATH = "res://obstacle.tscn"
 
-@onready
-var enemy_cooldown_timer = self.get_node("enemy_cooldown_timer")
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
     pass
@@ -29,16 +26,6 @@ func generate_enemy(y_position=null):
     new_obstacle.position = position
     add_child(new_obstacle)
     print("sup")
-    Global.scene_speed += Global.scene_acceleration
-        
-
-func _on_enemy_cooldown_timer_timeout():
-    var obstalce_position = road.generate_random_road_position()
-    var new_obstacle = preload(OBSTACLE_PATH).instantiate()
-    new_obstacle.position = obstalce_position
-    add_child(new_obstacle)
-    print("sup")
-    enemy_cooldown_timer.start()
     Global.scene_speed += Global.scene_acceleration
     
     

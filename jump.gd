@@ -87,6 +87,7 @@ func grind(position):
     self.set_velocity(new_velocity)
     is_grinding = true
     is_jumping = false
+    Global.set_temporary_speed(Global.GRIND_SCENE_SPEED)
     parent.skater_state = parent.SKATER_STATES.GRINDING
 
 func stop_grind():

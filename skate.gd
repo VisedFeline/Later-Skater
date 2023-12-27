@@ -87,6 +87,7 @@ func _physics_process(delta):
 
 func stop_grind():
     """ Handle stop grind behaviors """
+    Global.restore_speed()
     Global.scene_speed += (Global.scene_speed * GRIND_ACCELERATION)
 
 func die():

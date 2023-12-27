@@ -1,6 +1,7 @@
 extends Node
 
 const SPURT_SPEED_MULTIPLIER = 2
+const GRIND_SCENE_SPEED = 4
 
 var scene_speed_placeholder = 0
 var scene_speed = 2
@@ -12,13 +13,13 @@ enum GAME_STATES {GAME_RUNS_STATE, GAME_PAUSED_STATE, GAME_OVER_STATE}
 var game_state = GAME_STATES.GAME_RUNS_STATE
 
 
-func set_temporary_speed():
+func set_temporary_speed(temp_speed):
     """ Set a temporary speed and save old speed """
     if scene_speed_placeholder:
         push_warning("scene speed already changed")
         return
     scene_speed_placeholder = scene_speed
-    scene_speed *= SPURT_SPEED_MULTIPLIER
+    scene_speed = temp_speed
     
 func restore_speed():
     """ Restore speed to scene_speed_placeholder """
