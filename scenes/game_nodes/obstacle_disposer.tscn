@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckyx0moobku4f"]
+
+[ext_resource type="Script" path="res://scenes/game_nodes/obstacle_disposer.gd" id="1_cjn17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6dted"]
+size = Vector2(26, 298)
+
+[node name="ObstaclesDisposer" type="Area2D"]
+script = ExtResource("1_cjn17")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 139)
+shape = SubResource("RectangleShape2D_6dted")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

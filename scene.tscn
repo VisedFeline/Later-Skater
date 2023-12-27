@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4oegmwy2nfjb"]
+[gd_scene load_steps=8 format=3 uid="uid://b4oegmwy2nfjb"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_5hieu"]
 [ext_resource type="PackedScene" uid="uid://hs7jg1vnrv64" path="res://road.tscn" id="1_hxaqk"]
 [ext_resource type="PackedScene" uid="uid://bgty60d4648an" path="res://skater.tscn" id="2_sr1bj"]
 [ext_resource type="PackedScene" uid="uid://27fnss8hbtnf" path="res://obstacle.tscn" id="3_dvsk4"]
 [ext_resource type="PackedScene" uid="uid://c6ue14hby6w0t" path="res://scenes/GUI.tscn" id="6_a4s2l"]
+[ext_resource type="PackedScene" uid="uid://ckyx0moobku4f" path="res://scenes/game_nodes/obstacle_disposer.tscn" id="7_bgqkf"]
 [ext_resource type="PackedScene" uid="uid://d3egooxq20e3k" path="res://scenes/game_nodes/enemy_generator.tscn" id="7_evwqh"]
 
 [node name="level" type="Node2D"]
@@ -37,6 +38,9 @@ position = Vector2(-182.385, 3.09598)
 visible = false
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("7_evwqh")]
+
+[node name="ObstaclesDisposer" parent="." instance=ExtResource("7_bgqkf")]
+position = Vector2(-323.467, -157.895)
 
 [connection signal="player_died" from="skater" to="." method="_on_node_2d_player_died"]
 [connection signal="game_over" from="menu" to="." method="_on_menu_game_over"]
