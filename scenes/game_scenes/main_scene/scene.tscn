@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4oegmwy2nfjb"]
+[gd_scene load_steps=9 format=3 uid="uid://b4oegmwy2nfjb"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/main_scene/game_manager.gd" id="1_yvtmu"]
 [ext_resource type="PackedScene" uid="uid://hs7jg1vnrv64" path="res://scenes/road/road.tscn" id="2_k40to"]
+[ext_resource type="PackedScene" uid="uid://dbvjdr4lemjlj" path="res://scenes/debug/debugger.tscn" id="2_mn1il"]
 [ext_resource type="PackedScene" uid="uid://27fnss8hbtnf" path="res://scenes/obstacles/obstacle.tscn" id="3_j7ma6"]
 [ext_resource type="PackedScene" uid="uid://bgty60d4648an" path="res://scenes/skater/skater.tscn" id="4_ncqct"]
 [ext_resource type="PackedScene" uid="uid://c6ue14hby6w0t" path="res://scenes/gui/GUI.tscn" id="5_l0bmg"]
@@ -13,6 +14,10 @@ y_sort_enabled = true
 position = Vector2(577, 326)
 scale = Vector2(2.15478, 3.23)
 script = ExtResource("1_yvtmu")
+
+[node name="debugger" parent="." instance=ExtResource("2_mn1il")]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="road" parent="." instance=ExtResource("2_k40to")]
 z_index = -1

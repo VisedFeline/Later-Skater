@@ -7,6 +7,7 @@ var road = self.get_node("road")
 var menu = self.get_node("menu")
 
 const OBSTACLE_PATH = "res://scenes/obstacles/obstacle.tscn"
+const MAIN_SCENE = "res://scenes/game_scenes/main_scene/scene.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,7 +51,7 @@ func restart_game():
     get_tree().set_pause(false)
     # CHANGING TO THIS SCENE WASN'T WORKING DUR TO USAGE OF preload ON GLOBAL SCOPE !!!!!!
     Global.restart_settings()
-    get_tree().change_scene_to_file("res://scene.tscn")
+    get_tree().change_scene_to_file(MAIN_SCENE)
     
 func handle_death():
     """ Handle player death logic, currently loading game-over menu """
