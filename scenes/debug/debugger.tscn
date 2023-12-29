@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbvjdr4lemjlj"]
+[gd_scene load_steps=4 format=3 uid="uid://dbvjdr4lemjlj"]
 
 [ext_resource type="Script" path="res://scenes/debug/speed_label.gd" id="1_qvkik"]
+[ext_resource type="Script" path="res://scenes/debug/score.gd" id="2_em78b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sq28l"]
 font_size = 32
@@ -8,10 +9,19 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="debugger" type="CanvasLayer"]
 
-[node name="Label" type="Label" parent="."]
-offset_right = 192.0
+[node name="SPEED" type="Label" parent="."]
+offset_right = 272.0
 offset_bottom = 56.0
-text = "fgesfsefse"
+text = "SPEED: "
 label_settings = SubResource("LabelSettings_sq28l")
 clip_text = true
 script = ExtResource("1_qvkik")
+
+[node name="SCORE" type="Label" parent="."]
+offset_top = 64.0
+offset_right = 272.0
+offset_bottom = 120.0
+text = "SPEED: "
+label_settings = SubResource("LabelSettings_sq28l")
+clip_text = true
+script = ExtResource("2_em78b")

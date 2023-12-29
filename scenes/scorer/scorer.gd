@@ -1,5 +1,7 @@
 extends Node2D
 
+const BASE_SCORE = 1.0
+
 @onready
 var score: int = 0:
     get = get_score, set = increase_score
@@ -14,6 +16,10 @@ func increase_score(score_addition):
 var score_multiplier: float = 1
 
 
+func calculate_score() -> float:
+    """ Calculate the score """
+    return BASE_SCORE * Global.scene_speed
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
     pass # Replace with function body.
@@ -25,5 +31,6 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-    increase_score(1)
+    var score_increase = calculate_score()
+    increase_score(score_increase)
     print("score: " + str(get_score()))

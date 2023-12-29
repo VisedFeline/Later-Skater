@@ -39,10 +39,10 @@ shape = SubResource("RectangleShape2D_8ir2x")
 
 [node name="center" type="Node2D" parent="."]
 
-[node name="Scorer" type="Node2D" parent="."]
+[node name="scorer" type="Node2D" parent="."]
 script = ExtResource("4_qla6p")
 
-[node name="Timer" type="Timer" parent="Scorer"]
+[node name="Timer" type="Timer" parent="scorer"]
 autostart = true
 
-[connection signal="timeout" from="Scorer/Timer" to="Scorer" method="_on_timer_timeout"]
+[connection signal="timeout" from="scorer/Timer" to="scorer" method="_on_timer_timeout"]
