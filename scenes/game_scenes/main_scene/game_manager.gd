@@ -6,7 +6,7 @@ var road = self.get_node("road")
 @onready
 var menu = self.get_node("menu")
 
-const OBSTACLE_PATH = "res://obstacle.tscn"
+const OBSTACLE_PATH = "res://scenes/obstacles/obstacle.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

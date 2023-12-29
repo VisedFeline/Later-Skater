@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgty60d4648an"]
 
 [ext_resource type="Texture2D" uid="uid://gftn1kcgw4hw" path="res://icon.svg" id="1_fatsk"]
-[ext_resource type="Script" path="res://skate.gd" id="1_si1tm"]
-[ext_resource type="Script" path="res://jump.gd" id="2_kury6"]
-[ext_resource type="Script" path="res://scorer.gd" id="4_qla6p"]
+[ext_resource type="Script" path="res://scenes/skater/skate.gd" id="1_si1tm"]
+[ext_resource type="Script" path="res://scenes/skater/jump.gd" id="2_kury6"]
+[ext_resource type="Script" path="res://scenes/scorer/scorer.gd" id="4_qla6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvena"]
 size = Vector2(16, 20)

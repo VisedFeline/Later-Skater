@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://878o3etpyu0o"]
+[gd_scene load_steps=2 format=3 uid="uid://dxiw8gsqs8a2v"]
 
-[ext_resource type="Script" path="res://enemy_generator.gd" id="1_622y5"]
+[sub_resource type="GDScript" id="GDScript_w7htt"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+    pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+    pass
+
+"
 
 [node name="Timer" type="Timer"]
-script = ExtResource("1_622y5")
+script = SubResource("GDScript_w7htt")

@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Later Skater"
-run/main_scene="res://scene.tscn"
+run/main_scene="res://scenes/game_scenes/main_scene/scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
+Global="*res://scenes/utils/global.gd"
 
 [display]
 

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4oegmwy2nfjb"]
+
+[ext_resource type="Script" path="res://scenes/game_scenes/main_scene/game_manager.gd" id="1_yvtmu"]
+[ext_resource type="PackedScene" uid="uid://hs7jg1vnrv64" path="res://scenes/road/road.tscn" id="2_k40to"]
+[ext_resource type="PackedScene" uid="uid://27fnss8hbtnf" path="res://scenes/obstacles/obstacle.tscn" id="3_j7ma6"]
+[ext_resource type="PackedScene" uid="uid://bgty60d4648an" path="res://scenes/skater/skater.tscn" id="4_ncqct"]
+[ext_resource type="PackedScene" uid="uid://c6ue14hby6w0t" path="res://scenes/gui/GUI.tscn" id="5_l0bmg"]
+[ext_resource type="PackedScene" uid="uid://d3egooxq20e3k" path="res://scenes/game_nodes/enemy_generator.tscn" id="6_ido22"]
+[ext_resource type="PackedScene" uid="uid://ckyx0moobku4f" path="res://scenes/game_nodes/obstacle_disposer.tscn" id="7_ba1ih"]
+
+[node name="level" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(577, 326)
+scale = Vector2(2.15478, 3.23)
+script = ExtResource("1_yvtmu")
+
+[node name="road" parent="." instance=ExtResource("2_k40to")]
+z_index = -1
+position = Vector2(-0.988937, 4.17956)
+scale = Vector2(1.00502, 1.27709)
+
+[node name="obst3" parent="." instance=ExtResource("3_j7ma6")]
+position = Vector2(327.643, 24.4582)
+
+[node name="obst2" parent="." instance=ExtResource("3_j7ma6")]
+position = Vector2(260.351, -23.5294)
+
+[node name="obst1" parent="." instance=ExtResource("3_j7ma6")]
+position = Vector2(130.408, 14.5511)
+
+[node name="obst4" parent="." instance=ExtResource("3_j7ma6")]
+position = Vector2(374.516, 8.35913)
+
+[node name="skater" parent="." instance=ExtResource("4_ncqct")]
+position = Vector2(-182.385, 3.09598)
+
+[node name="menu" parent="." instance=ExtResource("5_l0bmg")]
+visible = false
+
+[node name="EnemyGenerator" parent="." instance=ExtResource("6_ido22")]
+
+[node name="ObstaclesDisposer" parent="." instance=ExtResource("7_ba1ih")]
+position = Vector2(-323.467, -157.895)
+
+[connection signal="player_died" from="skater" to="." method="_on_node_2d_player_died"]
+[connection signal="game_over" from="menu" to="." method="_on_menu_game_over"]
+[connection signal="restart_game" from="menu" to="." method="_on_menu_restart_game"]
+[connection signal="resume_game" from="menu" to="." method="_on_menu_resume_game"]
