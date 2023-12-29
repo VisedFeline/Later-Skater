@@ -6,6 +6,9 @@ var road = self.get_node("road")
 @onready
 var menu = self.get_node("menu")
 
+@onready
+var skater = self.get_node("skater")
+
 const OBSTACLE_PATH = "res://scenes/obstacles/obstacle.tscn"
 const MAIN_SCENE = "res://scenes/game_scenes/main_scene/scene.tscn"
 

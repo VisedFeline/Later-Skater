@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum SKATER_STATES {STANDING, CROUCHING, JUMPING, GRINDING}
+enum SKATER_STATES {STANDING, CROUCHING, JUMPING, GRINDING, SPEEDING}
 var skater_state = SKATER_STATES.STANDING
 
 # STANDING PARAMS
@@ -34,17 +34,23 @@ func grind(delta):
     x_speed += GRIND_ACCELERATION * delta
     position.x  += x_speed
 
+func enter_standing_state():
+    y_speed_multiplier = Y_SPEED_STANDING_MULTIPLIER
+    self.skater_state = SKATER_STATES.STANDING
 
-func handle_states():
+func handle_states(delta):
     """ Handle state by input """
+    var should_enter_stainding = (Input.is_action_just_released("crouch") 
+                                  or Input.is_action_just_released("accelerate"))
     if Input.is_action_pressed("crouch"):
-        skater_state = SKATER_STATES.CROUCHING
+        self.skater_state = SKATER_STATES.CROUCHING
         y_speed_multiplier = Y_SPEED_CROUCH_MULTIPLIER
-    else:
-        skater_state = SKATER_STATES.STANDING
-        y_speed_multiplier = Y_SPEED_STANDING_MULTIPLIER
-
-
+    elif Input.is_action_pressed("accelerate"):
+        self.skater_state = SKATER_STATES.SPEEDING
+        Global.increase_scene_speed(Global.acceleration * delta)
+    elif should_enter_stainding:
+        enter_standing_state()
+    
 func move_horizontally():
     """ Handle horizontal movement logic """
     var vertical_direction = Input.get_axis("up", "down")
@@ -52,11 +58,15 @@ func move_horizontally():
     if vertical_direction and not is_grinding:
         position.y  += y_speed * vertical_direction * y_speed_multiplier
 
+func handle_scene_speed():
+    if self.skater_state == SKATER_STATES.STANDING:
+        Global.balance_speed()
 
 func _physics_process(delta):
     # Get the input direction and handle the movement/deceleration.
     # As good practice, you should replace UI actions with custom gameplay actions.
-    handle_states()
+    handle_states(delta)
+    handle_scene_speed()
     
     var horizontal_direction = Input.get_axis("left", "right")
     
@@ -79,8 +89,11 @@ func _physics_process(delta):
         
     if Input.is_action_pressed("accelerate"):
         Global.increase_scene_speed(Global.acceleration * delta)
+        self.skater_state = SKATER_STATES.SPEEDING
         # Global.scene_speed = Global.scene_speed + Global.acceleration * delta
         # print(Global.scene_speed)
+    elif self.skater_state == SKATER_STATES.SPEEDING:
+        self.skater_state = SKATER_STATES.STANDING
     
     # If things don't work, comment and FIGURE IT OUT!
     move_and_slide()
