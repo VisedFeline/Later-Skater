@@ -30,7 +30,7 @@ func generate_enemy(y_position=null):
     new_obstacle.position = position
     add_child(new_obstacle)
     print("sup")
-    Global.increase_scene_speed(Global.scene_acceleration)
+    # Global.increase_scene_speed(Global.scene_acceleration)
     
     
 func _input(event):
