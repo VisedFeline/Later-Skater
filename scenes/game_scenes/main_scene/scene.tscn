@@ -21,8 +21,8 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="road" parent="." instance=ExtResource("2_k40to")]
 z_index = -1
-position = Vector2(-0.988937, 4.17956)
-scale = Vector2(1.00502, 1.27709)
+position = Vector2(30.5687, 27.709)
+scale = Vector2(1.12344, 1.51238)
 
 [node name="obst3" parent="." instance=ExtResource("3_j7ma6")]
 position = Vector2(327.643, 24.4582)
