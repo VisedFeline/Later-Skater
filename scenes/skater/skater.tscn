@@ -45,4 +45,8 @@ script = ExtResource("4_qla6p")
 [node name="Timer" type="Timer" parent="scorer"]
 autostart = true
 
+[node name="slowing_down_timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="scorer/Timer" to="scorer" method="_on_timer_timeout"]
+[connection signal="timeout" from="slowing_down_timer" to="." method="_on_slowing_down_timer_timeout"]

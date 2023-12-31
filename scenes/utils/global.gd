@@ -6,6 +6,7 @@ const MAX_SCENE_SPEED = 8
 const BALANCE_SPEED = 0.2
 const SPURT_SPEED_MULTIPLIER = 2
 const GRIND_SCENE_SPEED = 4
+const SCENE_DECELERATION = -0.05
 
 var scene_speed_placeholder = 0
 var scene_speed = 2
@@ -39,7 +40,7 @@ func increase_scene_speed(increment: float = 0.0):
     if increment > 0:
         scene_speed = move_toward(scene_speed, MAX_SCENE_SPEED, increment)
     elif increment < 0:
-        scene_speed = move_toward(scene_speed, MIN_SCENE_SPEED, increment)  
+        scene_speed = move_toward(scene_speed, MIN_SCENE_SPEED, abs(increment))  
     print("in " + str(increment))
     print("ao " + str(scene_speed))      
 
