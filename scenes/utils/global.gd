@@ -1,9 +1,10 @@
 extends Node
 
-const MIN_SCENE_SPEED = 1
+const MIN_SCENE_SPEED = 2
 const MAX_IDLE_SPEED = 6
+const MIN_IDLE_SPEED = 4
 const MAX_SCENE_SPEED = 8
-const BALANCE_SPEED = 0.2
+const BALANCE_SPEED = 0.02
 const SPURT_SPEED_MULTIPLIER = 2
 const GRIND_SCENE_SPEED = 4
 const SCENE_DECELERATION = -0.05
@@ -46,8 +47,9 @@ func increase_scene_speed(increment: float = 0.0):
 
 func balance_speed():
     """ Balance scene_speed to be above the minimum speed and above the maximum speed """
-    if scene_speed < MIN_SCENE_SPEED:
-        scene_speed = move_toward(scene_speed, MIN_SCENE_SPEED, BALANCE_SPEED)
+    if scene_speed < MIN_IDLE_SPEED:
+        scene_speed = move_toward(scene_speed, MIN_IDLE_SPEED, BALANCE_SPEED)
+    
     if scene_speed > MAX_IDLE_SPEED:
         scene_speed = move_toward(scene_speed, MAX_IDLE_SPEED, BALANCE_SPEED)
 

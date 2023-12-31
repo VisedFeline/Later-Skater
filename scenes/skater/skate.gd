@@ -22,12 +22,12 @@ var jumper = self.get_node("jumper")
 var x_speed = 2
 var y_speed = 2
 var y_speed_multiplier = Y_SPEED_STANDING_MULTIPLIER
-const LOWER_SPEED_LIMIT = 2
+const LOWER_SPEED_LIMIT = 1
 const UPPER_SPEED_LIMIT = 8
 const ACCELERATION = 2
 const GRIND_ACCELERATION = 0.2
 const IDLE_DECELERATION = 4
-const SLOWDOWN_TIMEOUT = 1.0
+const SLOWDOWN_TIMEOUT = 3.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -56,7 +56,8 @@ func handle_slowdown_timer():
 func handle_states(delta):
     """ Handle state by input """
     var should_enter_stainding = (not Input.is_action_pressed("crouch") 
-                                  and not Input.is_action_pressed("accelerate"))
+                                  and not Input.is_action_pressed("accelerate")
+                                  and not Input.is_action_pressed("left"))
     if Input.is_action_pressed("left"):
         self.skater_state = SKATER_STATES.SLOWING
     elif Input.is_action_pressed("crouch"):
