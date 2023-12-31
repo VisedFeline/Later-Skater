@@ -100,7 +100,7 @@ texture_filter = 1
 position = Vector2(-3.8147e-06, 16)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_gw5ut")
-animation = &"jump"
+animation = &"idle"
 script = ExtResource("8_2tmm5")
 
 [node name="air_collision" type="CollisionShape2D" parent="jumper"]
@@ -125,6 +125,5 @@ autostart = true
 [node name="slowing_down_timer" type="Timer" parent="."]
 wait_time = 3.0
 
-[connection signal="player_died" from="." to="jumper/Sprite2D" method="_on_skater_player_died"]
 [connection signal="timeout" from="scorer/Timer" to="scorer" method="_on_timer_timeout"]
 [connection signal="timeout" from="slowing_down_timer" to="." method="_on_slowing_down_timer_timeout"]

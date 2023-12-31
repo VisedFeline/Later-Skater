@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum SKATER_STATES {STANDING, CROUCHING, JUMPING, GRINDING, SPEEDING, SLOWING}
+enum SKATER_STATES {STANDING, CROUCHING, JUMPING, GRINDING, SPEEDING, SLOWING, FALLEN}
 var skater_state = SKATER_STATES.STANDING
 
 # STANDING PARAMS
@@ -27,7 +27,7 @@ const UPPER_SPEED_LIMIT = 8
 const ACCELERATION = 2
 const GRIND_ACCELERATION = 0.2
 const IDLE_DECELERATION = 4
-const SLOWDOWN_TIMEOUT = 3.0
+const SLOWDOWN_TIMEOUT = 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -136,6 +136,9 @@ func stop_grind():
     #Global.scene_speed += (Global.scene_speed * GRIND_ACCELERATION)
 
 func die():
+    # SETTING ANIMATION HERE DOESN'T WORK APPARENTLY
+    self.skater_state = SKATER_STATES.FALLEN
+    
     player_died.emit()
 
 

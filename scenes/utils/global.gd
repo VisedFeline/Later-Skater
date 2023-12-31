@@ -3,7 +3,7 @@ extends Node
 const MIN_SCENE_SPEED = 2
 const MAX_IDLE_SPEED = 6
 const MIN_IDLE_SPEED = 4
-const MAX_SCENE_SPEED = 8
+const MAX_SCENE_SPEED = 10
 const BALANCE_SPEED = 0.02
 const SPURT_SPEED_MULTIPLIER = 2
 const GRIND_SCENE_SPEED = 4
