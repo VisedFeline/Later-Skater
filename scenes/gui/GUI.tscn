@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ue14hby6w0t"]
+[gd_scene load_steps=7 format=3 uid="uid://c6ue14hby6w0t"]
 
 [ext_resource type="Script" path="res://scenes/gui/GUI.gd" id="1_5p8qh"]
 [ext_resource type="PackedScene" uid="uid://c4mvkylcr4rq7" path="res://scenes/buttons/quit_button.tscn" id="1_ukfob"]
+[ext_resource type="Script" path="res://scenes/gui/score.gd" id="2_4kooh"]
 [ext_resource type="PackedScene" uid="uid://qt6jp17s173y" path="res://scenes/buttons/resume_button.tscn" id="2_oflvb"]
 [ext_resource type="PackedScene" uid="uid://bocuq6legr4oe" path="res://scenes/buttons/restart_button.tscn" id="3_70ttj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkgh8"]
+font_size = 64
+font_color = Color(0.261586, 0.0664291, 0.0480991, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 2
@@ -40,6 +45,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "YOUR SCORE: "
+label_settings = SubResource("LabelSettings_jkgh8")
+script = ExtResource("2_4kooh")
 
 [node name="ResumeContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -80,16 +91,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-layout_mode = 0
-offset_left = 600.0
-offset_top = 288.0
-offset_right = 832.0
-offset_bottom = 303.0
-rotation = 1.309
-pivot_offset = Vector2(103.048, 7.5)
-color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="Control/VBoxContainer/ResumeContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/RestartContainer/RestartButton" to="." method="_on_restart_button_pressed"]

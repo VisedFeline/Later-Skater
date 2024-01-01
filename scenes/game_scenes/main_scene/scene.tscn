@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4oegmwy2nfjb"]
+[gd_scene load_steps=10 format=3 uid="uid://b4oegmwy2nfjb"]
 
 [ext_resource type="Script" path="res://scenes/game_scenes/main_scene/game_manager.gd" id="1_yvtmu"]
 [ext_resource type="PackedScene" uid="uid://hs7jg1vnrv64" path="res://scenes/road/road.tscn" id="2_k40to"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6ue14hby6w0t" path="res://scenes/gui/GUI.tscn" id="5_l0bmg"]
 [ext_resource type="PackedScene" uid="uid://d3egooxq20e3k" path="res://scenes/game_nodes/enemy_generator.tscn" id="6_ido22"]
 [ext_resource type="PackedScene" uid="uid://ckyx0moobku4f" path="res://scenes/game_nodes/obstacle_disposer.tscn" id="7_ba1ih"]
+[ext_resource type="AudioStream" uid="uid://bml3tus75odhm" path="res://assets/main_loop.wav" id="9_qm3vh"]
 
 [node name="level" type="Node2D"]
 y_sort_enabled = true
@@ -16,6 +17,7 @@ scale = Vector2(2.15478, 3.23)
 script = ExtResource("1_yvtmu")
 
 [node name="debugger" parent="." instance=ExtResource("2_mn1il")]
+visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
@@ -46,6 +48,10 @@ visible = false
 
 [node name="ObstaclesDisposer" parent="." instance=ExtResource("7_ba1ih")]
 position = Vector2(-323.467, -157.895)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_qm3vh")
+autoplay = true
 
 [connection signal="player_died" from="skater" to="." method="_on_node_2d_player_died"]
 [connection signal="game_over" from="menu" to="." method="_on_menu_game_over"]

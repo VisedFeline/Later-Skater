@@ -10,6 +10,7 @@ size = Vector2(533, 22.5543)
 size = Vector2(24.2693, 161.194)
 
 [node name="Node2D" type="Sprite2D"]
+texture_filter = 1
 position = Vector2(-0.0759835, 0.499993)
 scale = Vector2(1.24941, 1.36719)
 texture = ExtResource("1_vcj2k")
